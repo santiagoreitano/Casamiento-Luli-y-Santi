@@ -266,6 +266,7 @@ function FloatingMusicPlayer() {
       document.removeEventListener("click", handleFirstInteraction);
       document.removeEventListener("touchstart", handleFirstInteraction);
       document.removeEventListener("scroll", handleFirstInteraction);
+      document.removeEventListener("mousemove", handleFirstInteraction);
     };
 
     audio.addEventListener("ended", handleEnded);
@@ -274,6 +275,7 @@ function FloatingMusicPlayer() {
     document.addEventListener("click", handleFirstInteraction);
     document.addEventListener("touchstart", handleFirstInteraction);
     document.addEventListener("scroll", handleFirstInteraction);
+    document.addEventListener("mousemove", handleFirstInteraction);
 
     // Intentar cargar el audio
     audio.load();
@@ -285,6 +287,7 @@ function FloatingMusicPlayer() {
       document.removeEventListener("click", handleFirstInteraction);
       document.removeEventListener("touchstart", handleFirstInteraction);
       document.removeEventListener("scroll", handleFirstInteraction);
+      document.removeEventListener("mousemove", handleFirstInteraction);
     };
   }, [currentSongIndex]);
 
