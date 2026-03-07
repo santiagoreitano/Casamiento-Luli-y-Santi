@@ -466,7 +466,7 @@ const URL_PINTEREST = "https://www.pinterest.com";
 // 2. Ve al archivo → Click en "Raw" → Copia la URL
 // 3. Pégala en el array de abajo
 const PLAYLIST_CANCIONES = [
-  "/Ed Sheeran & Beyoncé - Perfect Duet  ESPAÑOL  LYRICS.mp3",
+  "/Perfect.mp3",
   // Agrega más canciones aquí (se reproducirán en bucle):
   // "https://github.com/santiagoreitano/canciones/raw/refs/heads/main/otra-cancion.mp3",
 ];
