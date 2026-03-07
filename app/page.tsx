@@ -1787,18 +1787,14 @@ function ModalRegalos({ onClose }: { onClose: () => void }) {
 function ModalDressCode({ onClose }: { onClose: () => void }) {
   const [mounted, setMounted] = useState(false);
 
-  // Montar el componente
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
 
-  // Bloquear scroll del body cuando el modal está abierto
   useEffect(() => {
-    console.log("ModalDressCode montado!");
     document.body.style.overflow = "hidden";
     return () => {
-      console.log("ModalDressCode desmontado!");
       document.body.style.overflow = "unset";
     };
   }, []);
@@ -1819,7 +1815,6 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
         backgroundColor: "rgba(255, 255, 255, 0.1)",
       }}
       onClick={(e) => {
-        console.log("Click en overlay del modal");
         onClose();
       }}
       initial={{ opacity: 0 }}
@@ -1843,7 +1838,6 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        {/* Eucalipto superior izquierdo */}
         <div
           style={{
             position: "absolute",
@@ -1870,7 +1864,6 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        {/* Eucalipto inferior derecho */}
         <div
           style={{
             position: "absolute",
@@ -1897,7 +1890,6 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        {/* Botón cerrar */}
         <button
           onClick={onClose}
           style={{
@@ -1913,7 +1905,6 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
           <X size={24} />
         </button>
 
-        {/* Contenido del modal */}
         <div
           style={{
             textAlign: "center",
@@ -1921,8 +1912,6 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
           }}
         >
           <div
-            className="h-[30px] relative shrink-0 w-[203px]"
-            data-name="Section title"
             style={{
               margin: "1rem auto 1.5rem auto",
               width: "100%",
@@ -1941,123 +1930,36 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
               viewBox="0 0 135.952 19.5515"
             >
               <g id="Section title">
-                <path
-                  d={svgPaths.p16c3d300}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector"
-                />
-                <path
-                  d={svgPaths.p9d4d80}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_2"
-                />
-                <path
-                  d={svgPaths.p3c800700}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_3"
-                />
-                <path
-                  d={svgPaths.p3219780}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_4"
-                />
-                <path
-                  d={svgPaths.p184e9800}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_5"
-                />
-                <path
-                  d={svgPaths.p3596a800}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_6"
-                />
-                <path
-                  d={svgPaths.p35085880}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_7"
-                />
-                <path
-                  d={svgPaths.p3b3430}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_8"
-                />
-                <path
-                  d={svgPaths.pd185100}
-                  fill="var(--fill-0, #2C3C1A)"
-                  id="Vector_9"
-                />
+                <path d={svgPaths.p16c3d300} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p9d4d80} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p3c800700} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p3219780} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p184e9800} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p3596a800} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p35085880} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.p3b3430} fill="var(--fill-0, #2C3C1A)" />
+                <path d={svgPaths.pd185100} fill="var(--fill-0, #2C3C1A)" />
               </g>
             </svg>
           </div>
-          <p
-            style={{
-              fontFamily: "'Raleway:Medium',sans-serif",
-              fontSize: "16px",
-              lineHeight: "1.625",
-            }}
-          >
+          <p style={{ fontFamily: "'Raleway:Medium',sans-serif", fontSize: "16px", lineHeight: "1.625" }}>
             Elegante Formal
           </p>
-          <div
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              paddingRight: "3rem",
-              paddingLeft: "3rem",
-              paddingTop: "1rem",
-              paddingBottom: "1rem",
-              borderRadius: "8px",
-              textAlign: "center",
-            }}
-          >
-            <div>
-              <p
-                style={{
-                  fontSize: "14px",
-                  fontFamily: "'Raleway:Regular',sans-serif",
-                  lineHeight: "1.625",
-                }}
-              >
-                El blanco y los colores claros están reservados
-                para la novia. <br></br>
-                <br></br>
-                ¡Nos encantará verte en otros colores!
-              </p>
-            </div>
+          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.1)", padding: "1rem 3rem", borderRadius: "8px", textAlign: "center" }}>
+            <p style={{ fontSize: "14px", fontFamily: "'Raleway:Regular',sans-serif", lineHeight: "1.625" }}>
+              El blanco y los colores claros están reservados para la novia. <br /><br />
+              ¡Nos encantará verte en otros colores!
+            </p>
           </div>
-          <p
-            style={{
-              fontSize: "12px",
-              fontFamily: "'Raleway:Regular',sans-serif",
-              opacity: 0.8,
-              marginTop: "1.5rem",
-            }}
-          >
-            ¡Queremos que te sientas cómodo y elegante en
-            nuestro día especial!
+          <p style={{ fontSize: "12px", fontFamily: "'Raleway:Regular',sans-serif", opacity: 0.8, marginTop: "1.5rem" }}>
+            ¡Queremos que te sientas cómodo y elegante en nuestro día especial!
           </p>
         </div>
         <button
           onClick={() => window.open(URL_PINTEREST, "_blank")}
-          style={{
-            width: "100%",
-            backgroundColor: "#938f38",
-            padding: "0.5rem 1.5rem",
-            borderRadius: "9999px",
-            marginTop: "1.5rem",
-            cursor: "pointer",
-            textAlign: "center",
-            border: "none",
-            color: "white",
-          }}
+          style={{ width: "100%", backgroundColor: "#938f38", padding: "0.5rem 1.5rem", borderRadius: "9999px", marginTop: "1.5rem", cursor: "pointer", border: "none", color: "white" }}
         >
-          <span
-            style={{
-              fontFamily: "'Raleway:Bold',sans-serif",
-              fontSize: "13px",
-            }}
-          >
-            {"IDEAS PARA INSPIRARTE"}
-          </span>
+          Ver Inspiración
         </button>
       </motion.div>
     </motion.div>
@@ -2066,6 +1968,109 @@ function ModalDressCode({ onClose }: { onClose: () => void }) {
   return createPortal(modalContent, document.body);
 }
 
+// Pantalla de Bienvenida Formal
+function WelcomeScreen({
+  onEnter,
+  data,
+}: {
+  onEnter: () => void;
+  data: InvitacionData | null;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="fixed inset-0 z-[9999] bg-[#FCFAF6] flex items-center justify-center p-4"
+    >
+      {/* Marco Formal */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, delay: 0.2 }}
+        className="relative w-full max-w-[400px] aspect-[3/4] border border-[#938F38]/30 flex flex-col items-center justify-between p-12 bg-white shadow-[0_0_50px_rgba(147,143,56,0.05)]"
+      >
+        {/* Adorno Esquinas */}
+        <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#938F38]/40" />
+        <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#938F38]/40" />
+        <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#938F38]/40" />
+        <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#938F38]/40" />
+
+        <div className="flex flex-col items-center gap-6 w-full">
+          {/* Logo Luli y Santi */}
+          <div className="w-[220px] h-[110px] relative">
+            <svg
+              className="w-full h-full"
+              fill="none"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 251.449 125.928"
+            >
+              <g id="LULI Y SANTI">
+                <g id="Name">
+                  <path d={svgPaths.p3a222c00} fill="#2C3C1A" />
+                  <path d={svgPaths.p21505600} fill="#2C3C1A" />
+                  <path d={svgPaths.p26d0b80} fill="#2C3C1A" />
+                  <path d={svgPaths.p1378b700} fill="#2C3C1A" />
+                </g>
+                <g id="Name_2">
+                  <path d={svgPaths.pfbd4600} fill="#2C3C1A" />
+                  <path d={svgPaths.p16c4d900} fill="#2C3C1A" />
+                  <path d={svgPaths.p1ebb2f00} fill="#2C3C1A" />
+                  <path d={svgPaths.p52f700} fill="#2C3C1A" />
+                </g>
+                <path d={svgPaths.p1cdddb80} fill="#2C3C1A" id="Name_3" />
+              </g>
+            </svg>
+          </div>
+
+          {/* Descripción Nuestra Boda */}
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[#938F38] text-[10px] tracking-[0.4em] uppercase font-light">
+              Nuestra Boda
+            </span>
+            <div className="w-12 h-px bg-[#938F38]/20" />
+          </div>
+        </div>
+
+        {/* Invitados */}
+        <div className="flex flex-col items-center gap-4 py-8">
+          <p className="text-[#2C3C1A]/40 text-[9px] tracking-[0.3em] uppercase">
+            Invitados
+          </p>
+          <div className="flex flex-col items-center gap-1">
+            {data?.personas ? (
+              data.personas.map((persona, idx) => (
+                <span
+                  key={idx}
+                  className="text-[#2C3C1A] text-lg font-serif italic tracking-wide"
+                >
+                  {persona.nombre}
+                </span>
+              ))
+            ) : (
+              <span className="text-[#2C3C1A] text-lg font-serif italic tracking-wide">
+                Familia
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Botón Sutil */}
+        <button
+          onClick={onEnter}
+          className="group relative flex flex-col items-center gap-3 py-4 transition-all hover:opacity-70 active:scale-95"
+        >
+          <div className="text-[#938F38] text-xs font-light tracking-[0.5em] uppercase border-b border-[#938F38]/30 pb-1 transition-all group-hover:border-[#938F38]">
+            Ingresar
+          </div>
+          <span className="text-[#2C3C1A]/30 text-[8px] tracking-[0.2em] uppercase transition-all group-hover:text-[#2C3C1A]/50">
+            Click para abrir
+          </span>
+        </button>
+      </motion.div>
+    </motion.div>
+  );
+}
 function FinalPredeterminado({
   className,
   onOpenConfirmarAsistencia,
@@ -10948,6 +10953,7 @@ function Frame8Desktop({
 function Frame() {
   const { width } = useBreakpoint();
   const [loading, setLoading] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState<InvitacionData | null>(null);
 
@@ -10966,6 +10972,7 @@ function Frame() {
   };
 
   useEffect(() => {
+    // ... (fetch logic remains same)
     // Obtener el ID de la URL
     const params = new URLSearchParams(window.location.search);
     let id = params.get("id");
@@ -11035,151 +11042,67 @@ function Frame() {
     );
   }
 
-  // Renderizar la invitación normal
-  if (width < 1280) {
-    return (
-      <div style={{ backgroundColor: "#FCFAF6", minHeight: "100vh", display: "flex", justifyContent: "center" }}>
-        <>
-          <Frame8Mobile
-            onOpenConfirmarAsistencia={() => {
-              console.log(
-                "Click en Confirmar Asistencia - Mobile",
-              );
-              setIsConfirmarAsistenciaOpen(true);
-            }}
-            onOpenMasInfo1={() => {
-              console.log(
-                "Click en Más Info 1 (Tarjeta) - Mobile",
-              );
-              setIsMasInfo1Open(true);
-            }}
-            onOpenMasInfo2={() => {
-              console.log(
-                "Click en Más Info 2 (Regalo) - Mobile",
-              );
-              setIsMasInfo2Open(true);
-            }}
-            onOpenDressCode={() => {
-              console.log("Click en Dress Code - Mobile");
-              setIsDressCodeOpen(true);
-              console.log(
-                "Estado isDressCodeOpen después de set:",
-                true,
-              );
-            }}
-            pagaTarjeta={data!.pagaTarjeta}
-          />
+  const handleEnterInvitation = () => {
+    setShowWelcome(false);
+    // Intentar iniciar la música (la interacción del botón permitirá el play)
+    console.log("🖱️ Iniciando invitación y música...");
+  };
 
-          {/* Modales renderizados con z-index alto para aparecer encima */}
-          {isConfirmarAsistenciaOpen && (
-            <ModalConfirmarAsistencia
-              onClose={() => setIsConfirmarAsistenciaOpen(false)}
-              data={data!}
-              onDataUpdate={handleDataUpdate}
-            />
-          )}
-
-          {isMasInfo1Open && (
-            <ModalTarjeta
-              onClose={() => setIsMasInfo1Open(false)}
-            />
-          )}
-
-          {isMasInfo2Open && (
-            <ModalRegalos
-              onClose={() => setIsMasInfo2Open(false)}
-            />
-          )}
-
-          {isDressCodeOpen &&
-            (console.log(
-              "Renderizando ModalDressCode - Mobile, isDressCodeOpen:",
-              isDressCodeOpen,
-            ),
-              true) && (
-              <ModalDressCode
-                onClose={() => {
-                  console.log("Cerrando ModalDressCode");
-                  setIsDressCodeOpen(false);
-                }}
-              />
-            )}
-
-          {/* Botón flotante de música */}
-          <FloatingMusicPlayer />
-        </>
-      </div>
-    );
-  }
-  return (
-    <div style={{ backgroundColor: "#FCFAF6", minHeight: "100vh", display: "flex", justifyContent: "center" }}>
-      <>
-        <Frame8Desktop
-          onOpenConfirmarAsistencia={() => {
-            console.log(
-              "Click en Confirmar Asistencia - Desktop",
-            );
-            setIsConfirmarAsistenciaOpen(true);
-          }}
-          onOpenMasInfo1={() => {
-            console.log(
-              "Click en Más Info 1 (Tarjeta) - Desktop",
-            );
-            setIsMasInfo1Open(true);
-          }}
-          onOpenMasInfo2={() => {
-            console.log("Click en Más Info 2 (Regalo) - Desktop");
-            setIsMasInfo2Open(true);
-          }}
-          onOpenDressCode={() => {
-            console.log("Click en Dress Code - Desktop");
-            setIsDressCodeOpen(true);
-            console.log(
-              "Estado isDressCodeOpen despu��s de set:",
-              true,
-            );
-          }}
+  const inviteContent = (
+    <>
+      {width < 1280 ? (
+        <Frame8Mobile
+          onOpenConfirmarAsistencia={() => setIsConfirmarAsistenciaOpen(true)}
+          onOpenMasInfo1={() => setIsMasInfo1Open(true)}
+          onOpenMasInfo2={() => setIsMasInfo2Open(true)}
+          onOpenDressCode={() => setIsDressCodeOpen(true)}
           pagaTarjeta={data!.pagaTarjeta}
         />
+      ) : (
+        <Frame8Desktop
+          onOpenConfirmarAsistencia={() => setIsConfirmarAsistenciaOpen(true)}
+          onOpenMasInfo1={() => setIsMasInfo1Open(true)}
+          onOpenMasInfo2={() => setIsMasInfo2Open(true)}
+          onOpenDressCode={() => setIsDressCodeOpen(true)}
+          pagaTarjeta={data!.pagaTarjeta}
+        />
+      )}
 
-        {/* Modales renderizados con z-index alto para aparecer encima */}
-        {isConfirmarAsistenciaOpen && (
-          <ModalConfirmarAsistencia
-            onClose={() => setIsConfirmarAsistenciaOpen(false)}
-            data={data!}
-            onDataUpdate={handleDataUpdate}
+      {isConfirmarAsistenciaOpen && (
+        <ModalConfirmarAsistencia
+          onClose={() => setIsConfirmarAsistenciaOpen(false)}
+          data={data!}
+          onDataUpdate={handleDataUpdate}
+        />
+      )}
+      {isMasInfo1Open && <ModalTarjeta onClose={() => setIsMasInfo1Open(false)} />}
+      {isMasInfo2Open && <ModalRegalos onClose={() => setIsMasInfo2Open(false)} />}
+      {isDressCodeOpen && <ModalDressCode onClose={() => setIsDressCodeOpen(false)} />}
+
+      <FloatingMusicPlayer />
+    </>
+  );
+
+  return (
+    <div style={{ backgroundColor: "#FCFAF6", minHeight: "100vh", display: "flex", justifyContent: "center" }}>
+      <AnimatePresence>
+        {showWelcome ? (
+          <WelcomeScreen
+            key="welcome"
+            data={data}
+            onEnter={handleEnterInvitation}
           />
+        ) : (
+          <motion.div
+            key="invitation"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            {inviteContent}
+          </motion.div>
         )}
-
-        {isMasInfo1Open && (
-          <ModalTarjeta
-            onClose={() => setIsMasInfo1Open(false)}
-          />
-        )}
-
-        {isMasInfo2Open && (
-          <ModalRegalos
-            onClose={() => setIsMasInfo2Open(false)}
-          />
-        )}
-
-        {isDressCodeOpen &&
-          (console.log(
-            "Renderizando ModalDressCode - Desktop, isDressCodeOpen:",
-            isDressCodeOpen,
-          ),
-            true) && (
-            <ModalDressCode
-              onClose={() => {
-                console.log("Cerrando ModalDressCode");
-                setIsDressCodeOpen(false);
-              }}
-            />
-          )}
-
-        {/* Botón flotante de música */}
-        <FloatingMusicPlayer />
-      </>
+      </AnimatePresence>
     </div>
   );
 }
