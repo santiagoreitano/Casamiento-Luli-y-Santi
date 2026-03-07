@@ -1,6 +1,0 @@
-1:"$Sreact.fragment"
-2:I[13964,["/_next/static/chunks/820bac778a6ab024.js"],"ViewportBoundary"]
-3:I[13964,["/_next/static/chunks/820bac778a6ab024.js"],"MetadataBoundary"]
-4:"$Sreact.suspense"
-5:I[2952,["/_next/static/chunks/820bac778a6ab024.js"],"IconMark"]
-0:{"buildId":"fa9Zo_ifNSR7TIDyGbc9E","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Casamiento Luli y Santi"}],["$","meta","1",{"name":"description","content":"Casamiento Luli y Santi"}],["$","link","2",{"rel":"icon","href":"/icon-light-32x32.png","media":"(prefers-color-scheme: light)"}],["$","link","3",{"rel":"icon","href":"/icon-dark-32x32.png","media":"(prefers-color-scheme: dark)"}],["$","link","4",{"rel":"icon","href":"/icon.svg","type":"image/svg+xml"}],["$","link","5",{"rel":"apple-touch-icon","href":"/apple-icon.png"}],["$","$L5","6",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
