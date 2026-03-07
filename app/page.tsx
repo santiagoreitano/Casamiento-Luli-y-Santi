@@ -187,7 +187,7 @@ function FloatingMusicPlayer() {
     // Establecer la fuente de audio con tipo MIME
     const url = PLAYLIST_CANCIONES[currentSongIndex];
     audio.src = url;
-    audio.type = "audio/mpeg";
+
     console.log(
       `🎵 Cargando canción ${currentSongIndex + 1}/${PLAYLIST_CANCIONES.length}`,
     );
