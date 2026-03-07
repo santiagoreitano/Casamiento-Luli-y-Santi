@@ -187,7 +187,6 @@ function FloatingMusicPlayer() {
     // Establecer la fuente de audio con tipo MIME
     const url = PLAYLIST_CANCIONES[currentSongIndex];
     audio.src = url;
-    audio.type = "audio/mpeg";
     console.log(
       `🎵 Cargando canción ${currentSongIndex + 1}/${PLAYLIST_CANCIONES.length}`,
     );
@@ -1167,7 +1166,10 @@ function ModalConfirmarAsistencia({
 // Modal Tarjeta Component
 function ModalTarjeta({ onClose }: { onClose: () => void }) {
   const [mounted, setMounted] = useState(false);
-  const [toast, setToast] = useState(null);
+  const [toast, setToast] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   // Montar el componente
   useEffect(() => {
@@ -1485,7 +1487,10 @@ function ModalTarjeta({ onClose }: { onClose: () => void }) {
 // Modal Regalos Component
 function ModalRegalos({ onClose }: { onClose: () => void }) {
   const [mounted, setMounted] = useState(false);
-  const [toast, setToast] = useState(null);
+  const [toast, setToast] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   // Montar el componente
   useEffect(() => {
