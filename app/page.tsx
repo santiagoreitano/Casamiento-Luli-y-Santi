@@ -213,31 +213,7 @@ function FloatingMusicPlayer() {
 
     // Handler para cuando el audio está listo
     const handleCanPlay = () => {
-      console.log("✅ Audio listo para reproducir");
-      // Intentar reproducir automáticamente
-      console.log("🎵 Intentando autoplay...");
-      audio
-        .play()
-        .then(() => {
-          setIsPlaying(true);
-          console.log("✅ Autoplay exitoso");
-        })
-        .catch((err) => {
-          console.log("⚠️ Autoplay bloqueado por el navegador:", err);
-          // Intentar reproducir silenciado (más probable que funcione según políticas de navegador)
-          audio.muted = true;
-          audio.play()
-            .then(() => {
-              setIsPlaying(true);
-              console.log("✅ Playback silenciado iniciado como respaldo");
-            })
-            .catch(e => {
-              console.log("❌ Playback silenciado también falló:", e);
-            });
-          console.log(
-            "💡 El audio se activará completamente con la primera interacción del usuario",
-          );
-        });
+      console.log("✅ Audio listo para reproducir (esperando interacción)");
     };
 
     // Respaldo: Activar música con la primera interacción en cualquier parte del documento
