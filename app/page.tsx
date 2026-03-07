@@ -193,9 +193,6 @@ function FloatingMusicPlayer() {
     );
     console.log(`🎵 URL: ${url}`);
 
-    // Variable para saber si debemos reproducir automáticamente
-    const shouldAutoPlay = isPlaying;
-
     // Handler para cuando termina la canción
     const handleEnded = () => {
       console.log("🎵 Canción terminada, siguiente...");
@@ -207,51 +204,26 @@ function FloatingMusicPlayer() {
     // Handler para errores de carga
     const handleError = (e: Event) => {
       console.error("❌ Error al cargar el audio:", e);
-      console.error("❌ Error del elemento:", audio.error);
       setIsPlaying(false);
     };
 
-    // Handler para cuando el audio está listo
-    const handleCanPlay = () => {
-      console.log("✅ Audio listo para reproducir (esperando interacción)");
-    };
-
-    // Respaldo: Activar música con la primera interacción en cualquier parte del documento
-    // Esto es necesario para el des-silenciado y para navegadores restrictivos
-    const handleFirstInteraction = () => {
+    // Exponer función global para iniciar música (para saltar bloqueos de mobile)
+    (window as any).startMusic = () => {
+      console.log("🖱️ Trigger global de música recibido");
       if (audioRef.current) {
-        if (audioRef.current.muted) {
-          console.log("🖱️ Primera interacción - quitando silencio...");
-          audioRef.current.muted = false;
-        }
-
-        if (!isPlaying) {
-          console.log("🖱️ Primera interacción detectada, iniciando música...");
-          audioRef.current
-            .play()
-            .then(() => {
-              setIsPlaying(true);
-              console.log("✅ Música iniciada tras interacción");
-            })
-            .catch((err) => {
-              console.error("❌ Error al reproducir tras interacción:", err);
-            });
-        }
+        audioRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+            console.log("✅ Música iniciada vía trigger global");
+          })
+          .catch(err => {
+            console.error("❌ Error en trigger global de música:", err);
+          });
       }
-      // Eliminar los listeners después de la primera interacción
-      document.removeEventListener("click", handleFirstInteraction);
-      document.removeEventListener("touchstart", handleFirstInteraction);
-      document.removeEventListener("scroll", handleFirstInteraction);
-      document.removeEventListener("mousemove", handleFirstInteraction);
     };
 
     audio.addEventListener("ended", handleEnded);
     audio.addEventListener("error", handleError);
-    audio.addEventListener("canplaythrough", handleCanPlay);
-    document.addEventListener("click", handleFirstInteraction);
-    document.addEventListener("touchstart", handleFirstInteraction);
-    document.addEventListener("scroll", handleFirstInteraction);
-    document.addEventListener("mousemove", handleFirstInteraction);
 
     // Intentar cargar el audio
     audio.load();
@@ -259,11 +231,7 @@ function FloatingMusicPlayer() {
     return () => {
       audio.removeEventListener("ended", handleEnded);
       audio.removeEventListener("error", handleError);
-      audio.removeEventListener("canplaythrough", handleCanPlay);
-      document.removeEventListener("click", handleFirstInteraction);
-      document.removeEventListener("touchstart", handleFirstInteraction);
-      document.removeEventListener("scroll", handleFirstInteraction);
-      document.removeEventListener("mousemove", handleFirstInteraction);
+      delete (window as any).startMusic;
     };
   }, [currentSongIndex]);
 
@@ -436,7 +404,7 @@ const URL_COMO_LLEGAR_FIESTA =
 const URL_INSTAGRAM = "https://www.instagram.com/casamientoluliysanti?igsh=czlyY29mNG42NnJw";
 const URL_PLAYLIST = "https://open.spotify.com/playlist/0lBRB4gQQlQmtNCOy2aicR?si=kuMPP5rLTK2oSSY3QI_X7w&pi=h9WMl4FCT2uVJ";
 const URL_ALBUM = "https://web.dotstheapp.com/a?group=2381973&dlBy=santiagoreitano&code=EWd3ut9wpMMI&utm_source=guest&utm_medium=share&utm_campaign=guest_event_album&force_app=1";
-const URL_PINTEREST = "https://www.pinterest.com";
+const URL_PINTEREST = "https://pin.it/1mL1PTj1S";
 
 // 🎵 CONFIGURACIÓN DE MÚSICA
 // URLs directas de GitHub - perfecto para streaming de audio
@@ -11043,8 +11011,14 @@ function Frame() {
   }
 
   const handleEnterInvitation = () => {
+    // Iniciar música usando la función global expuesta por FloatingMusicPlayer
+    // Esto es síncrono y cumple con las reglas de activación de usuario de iOS/Android
+    if (typeof (window as any).startMusic === "function") {
+      (window as any).startMusic();
+    } else {
+      console.warn("⚠️ Trigger global de música no encontrado");
+    }
     setShowWelcome(false);
-    // Intentar iniciar la música (la interacción del botón permitirá el play)
     console.log("🖱️ Iniciando invitación y música...");
   };
 
@@ -11078,14 +11052,15 @@ function Frame() {
       {isMasInfo1Open && <ModalTarjeta onClose={() => setIsMasInfo1Open(false)} />}
       {isMasInfo2Open && <ModalRegalos onClose={() => setIsMasInfo2Open(false)} />}
       {isDressCodeOpen && <ModalDressCode onClose={() => setIsDressCodeOpen(false)} />}
-
-      <FloatingMusicPlayer />
     </>
   );
 
   return (
     <div style={{ backgroundColor: "#FCFAF6", minHeight: "100vh", display: "flex", justifyContent: "center" }}>
-      <AnimatePresence>
+      {/* El reproductor se monta SIEMPRE aquí para estar listo para el trigger global */}
+      <FloatingMusicPlayer />
+
+      <AnimatePresence mode="wait">
         {showWelcome ? (
           <WelcomeScreen
             key="welcome"
