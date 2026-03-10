@@ -31,7 +31,7 @@ const imgImg16911 = "/img-1691-1.png";
 const imgImg46111 = "/img-461-1.png";
 const imgImg7192Original1 = "/img-7192-original-1.png";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import { createPortal } from "react-dom";
 import { X, Check } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -64,10 +64,6 @@ import imgEucalipto4 from "figma:asset/85eb862a2b451e5874bebfca169303b0d6c002b3.
 import imgEucalipto5 from "figma:asset/37d0af2e0312b5fbf4582af05530be9b51762f99.png";
 import { useActiveBreakpoint } from "figma:react";
 
-import { useState, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
-import { X, Check } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
 
 import imgImg16911 from "figma:asset/5f15aab27fb66916cf32b424e069d86abac5c119.png";
 import imgImg46111 from "figma:asset/3df4f1e9730bc82be169445e53fe29eba5afb0ca.png";
@@ -1956,7 +1952,7 @@ function WelcomeScreen({
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.2 }}
-        className="relative w-full max-w-[400px] aspect-[3/4] border border-[#938F38]/30 flex flex-col items-center justify-between p-12 bg-white shadow-[0_0_50px_rgba(147,143,56,0.05)]"
+        className="relative w-full max-w-[400px] min-h-[534px] border border-[#938F38]/30 flex flex-col items-center justify-between p-12 bg-white shadow-[0_0_50px_rgba(147,143,56,0.05)]"
       >
         {/* Adorno Esquinas */}
         <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#938F38]/40" />
@@ -2001,22 +1997,24 @@ function WelcomeScreen({
         </div>
 
         {/* Invitados */}
-        <div className="flex flex-col items-center gap-4 py-8">
+        <div className="flex flex-col items-center gap-4 py-8 w-full">
           <p className="text-[#2C3C1A]/40 text-[9px] tracking-[0.3em] uppercase">
             Invitados
           </p>
-          <div className="flex flex-col items-center gap-1">
+          <div className="font-serif italic text-base leading-relaxed flex flex-row flex-wrap justify-center items-center gap-x-2 gap-y-1 px-2 w-full">
             {data?.personas ? (
               data.personas.map((persona, idx) => (
-                <span
-                  key={idx}
-                  className="text-[#2C3C1A] text-lg font-serif italic tracking-wide"
-                >
-                  {persona.nombre}
-                </span>
+                <Fragment key={idx}>
+                  <span className="text-[#2C3C1A] tracking-wide">
+                    {persona.nombre}
+                  </span>
+                  {idx < data.personas.length - 1 && (
+                    <span className="text-[#938F38]/40 text-xs not-italic">•</span>
+                  )}
+                </Fragment>
               ))
             ) : (
-              <span className="text-[#2C3C1A] text-lg font-serif italic tracking-wide">
+              <span className="text-[#2C3C1A] tracking-wide">
                 Familia
               </span>
             )}
