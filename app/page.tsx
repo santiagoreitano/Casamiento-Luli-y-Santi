@@ -926,6 +926,8 @@ function ModalConfirmarAsistencia({
             >
               Selecciona quiénes asistirán al evento
             </p>
+            <p id="fecha-modal" style={{ color: "rgb(147, 143, 56)" }}
+              className="text-[10px] font-bold text-verde-boton text-center mb-5 uppercase tracking-wider">Fecha límite: 15 de Abril</p>
           </div>
 
           <form
@@ -1945,95 +1947,97 @@ function WelcomeScreen({
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="fixed inset-0 z-[9999] bg-[#FCFAF6] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999] bg-[#FCFAF6] overflow-y-auto"
     >
-      {/* Marco Formal */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.2 }}
-        className="relative w-full max-w-[400px] min-h-[534px] border border-[#938F38]/30 flex flex-col items-center justify-between p-12 bg-white shadow-[0_0_50px_rgba(147,143,56,0.05)]"
-      >
-        {/* Adorno Esquinas */}
-        <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#938F38]/40" />
-        <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#938F38]/40" />
-        <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#938F38]/40" />
-        <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#938F38]/40" />
-
-        <div className="flex flex-col items-center gap-6 w-full">
-          {/* Logo Luli y Santi */}
-          <div className="w-[220px] h-[110px] relative">
-            <svg
-              className="w-full h-full"
-              fill="none"
-              preserveAspectRatio="xMidYMid meet"
-              viewBox="0 0 251.449 125.928"
-            >
-              <g id="LULI Y SANTI">
-                <g id="Name">
-                  <path d={svgPaths.p3a222c00} fill="#2C3C1A" />
-                  <path d={svgPaths.p21505600} fill="#2C3C1A" />
-                  <path d={svgPaths.p26d0b80} fill="#2C3C1A" />
-                  <path d={svgPaths.p1378b700} fill="#2C3C1A" />
-                </g>
-                <g id="Name_2">
-                  <path d={svgPaths.pfbd4600} fill="#2C3C1A" />
-                  <path d={svgPaths.p16c4d900} fill="#2C3C1A" />
-                  <path d={svgPaths.p1ebb2f00} fill="#2C3C1A" />
-                  <path d={svgPaths.p52f700} fill="#2C3C1A" />
-                </g>
-                <path d={svgPaths.p1cdddb80} fill="#2C3C1A" id="Name_3" />
-              </g>
-            </svg>
-          </div>
-
-          {/* Descripción Nuestra Boda */}
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[#938F38] text-[10px] tracking-[0.4em] uppercase font-light">
-              Nuestra Boda
-            </span>
-            <div className="w-12 h-px bg-[#938F38]/20" />
-          </div>
-        </div>
-
-        {/* Invitados */}
-        <div className="flex flex-col items-center gap-4 py-8 w-full">
-          <p className="text-[#2C3C1A]/40 text-[9px] tracking-[0.3em] uppercase">
-            Invitados
-          </p>
-          <div className="font-serif italic text-base leading-relaxed flex flex-row flex-wrap justify-center items-center gap-x-2 gap-y-1 px-2 w-full">
-            {data?.personas ? (
-              data.personas.map((persona, idx) => (
-                <Fragment key={idx}>
-                  <span className="text-[#2C3C1A] tracking-wide">
-                    {persona.nombre}
-                  </span>
-                  {idx < data.personas.length - 1 && (
-                    <span className="text-[#938F38]/40 text-xs not-italic">•</span>
-                  )}
-                </Fragment>
-              ))
-            ) : (
-              <span className="text-[#2C3C1A] tracking-wide">
-                Familia
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Botón Sutil */}
-        <button
-          onClick={onEnter}
-          className="group relative flex flex-col items-center gap-3 py-4 transition-all hover:opacity-70 active:scale-95"
+      <div className="min-h-full w-full flex items-center justify-center p-4">
+        {/* Marco Formal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="relative w-full max-w-[400px] min-h-[534px] border border-[#938F38]/30 flex flex-col items-center justify-between p-12 bg-white shadow-[0_0_50px_rgba(147,143,56,0.05)]"
         >
-          <div className="text-[#938F38] text-xs font-light tracking-[0.5em] uppercase border-b border-[#938F38]/30 pb-1 transition-all group-hover:border-[#938F38]">
-            Ingresar
+          {/* Adorno Esquinas */}
+          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#938F38]/40" />
+          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#938F38]/40" />
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#938F38]/40" />
+          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#938F38]/40" />
+
+          <div className="flex flex-col items-center gap-6 w-full">
+            {/* Logo Luli y Santi */}
+            <div className="w-[220px] h-[110px] relative">
+              <svg
+                className="w-full h-full"
+                fill="none"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 251.449 125.928"
+              >
+                <g id="LULI Y SANTI">
+                  <g id="Name">
+                    <path d={svgPaths.p3a222c00} fill="#2C3C1A" />
+                    <path d={svgPaths.p21505600} fill="#2C3C1A" />
+                    <path d={svgPaths.p26d0b80} fill="#2C3C1A" />
+                    <path d={svgPaths.p1378b700} fill="#2C3C1A" />
+                  </g>
+                  <g id="Name_2">
+                    <path d={svgPaths.pfbd4600} fill="#2C3C1A" />
+                    <path d={svgPaths.p16c4d900} fill="#2C3C1A" />
+                    <path d={svgPaths.p1ebb2f00} fill="#2C3C1A" />
+                    <path d={svgPaths.p52f700} fill="#2C3C1A" />
+                  </g>
+                  <path d={svgPaths.p1cdddb80} fill="#2C3C1A" id="Name_3" />
+                </g>
+              </svg>
+            </div>
+
+            {/* Descripción Nuestra Boda */}
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-[#938F38] text-[10px] tracking-[0.4em] uppercase font-light">
+                Nuestra Boda
+              </span>
+              <div className="w-12 h-px bg-[#938F38]/20" />
+            </div>
           </div>
-          <span className="text-[#2C3C1A]/30 text-[8px] tracking-[0.2em] uppercase transition-all group-hover:text-[#2C3C1A]/50">
-            Click para abrir
-          </span>
-        </button>
-      </motion.div>
+
+          {/* Invitados */}
+          <div className="flex flex-col items-center gap-4 py-8 w-full">
+            <p className="text-[#2C3C1A]/40 text-[9px] tracking-[0.3em] uppercase">
+              Invitados
+            </p>
+            <div className="font-serif italic text-base leading-relaxed flex flex-row flex-wrap justify-center items-center gap-x-2 gap-y-1 px-2 w-full">
+              {data?.personas ? (
+                data.personas.map((persona, idx) => (
+                  <Fragment key={idx}>
+                    <span className="text-[#2C3C1A] tracking-wide">
+                      {persona.nombre}
+                    </span>
+                    {idx < data.personas.length - 1 && (
+                      <span className="text-[#938F38]/40 text-xs not-italic">•</span>
+                    )}
+                  </Fragment>
+                ))
+              ) : (
+                <span className="text-[#2C3C1A] tracking-wide">
+                  Familia
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Botón Sutil */}
+          <button
+            onClick={onEnter}
+            className="group relative flex flex-col items-center gap-3 py-4 transition-all hover:opacity-70 active:scale-95"
+          >
+            <div className="text-[#938F38] text-xs font-light tracking-[0.5em] uppercase border-b border-[#938F38]/30 pb-1 transition-all group-hover:border-[#938F38]">
+              Ingresar
+            </div>
+            <span className="text-[#2C3C1A]/30 text-[8px] tracking-[0.2em] uppercase transition-all group-hover:text-[#2C3C1A]/50">
+              Click para abrir
+            </span>
+          </button>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -6963,127 +6967,133 @@ function FinalPredeterminado({
               </g>
             </svg>
           </div>
-          <StyledButton
-            variant="primary"
-            className="content-stretch flex items-center justify-center"
-            data-name="BOTON CONFIRMAR ASISTENCIA"
-            onClick={() => {
-              console.log(
-                "Click directo en botón CONFIRMAR ASISTENCIA",
-              );
-              onOpenConfirmarAsistencia?.();
-            }}
-          >
-            <div
-              className="h-[9.046px] relative shrink-0 w-[148.872px]"
-              data-name="Button text"
+          <div className="flex flex-col items-center">
+            <StyledButton
+              variant="primary"
+              className="content-stretch flex items-center justify-center"
+              data-name="BOTON CONFIRMAR ASISTENCIA"
+              onClick={() => {
+                console.log(
+                  "Click directo en botón CONFIRMAR ASISTENCIA",
+                );
+                onOpenConfirmarAsistencia?.();
+              }}
             >
-              <svg
-                className="absolute block size-full"
-                fill="none"
-                preserveAspectRatio="none"
-                viewBox="0 0 148.872 9.04596"
+              <div
+                className="h-[9.046px] relative shrink-0 w-[148.872px]"
+                data-name="Button text"
               >
-                <g id="Button text">
-                  <path
-                    d={svgPaths.p2c09fd40}
-                    fill="var(--fill-0, white)"
-                    id="Vector"
-                  />
-                  <path
-                    d={svgPaths.p7626400}
-                    fill="var(--fill-0, white)"
-                    id="Vector_2"
-                  />
-                  <path
-                    d={svgPaths.pb6fbf80}
-                    fill="var(--fill-0, white)"
-                    id="Vector_3"
-                  />
-                  <path
-                    d={svgPaths.p32833580}
-                    fill="var(--fill-0, white)"
-                    id="Vector_4"
-                  />
-                  <path
-                    d={svgPaths.p1a498a80}
-                    fill="var(--fill-0, white)"
-                    id="Vector_5"
-                  />
-                  <path
-                    d={svgPaths.p189288f0}
-                    fill="var(--fill-0, white)"
-                    id="Vector_6"
-                  />
-                  <path
-                    d={svgPaths.p765070}
-                    fill="var(--fill-0, white)"
-                    id="Vector_7"
-                  />
-                  <path
-                    d={svgPaths.p31381500}
-                    fill="var(--fill-0, white)"
-                    id="Vector_8"
-                  />
-                  <path
-                    d={svgPaths.p24a78e00}
-                    fill="var(--fill-0, white)"
-                    id="Vector_9"
-                  />
-                  <path
-                    d={svgPaths.p1e4aba00}
-                    fill="var(--fill-0, white)"
-                    id="Vector_10"
-                  />
-                  <path
-                    d={svgPaths.p1f962000}
-                    fill="var(--fill-0, white)"
-                    id="Vector_11"
-                  />
-                  <path
-                    d={svgPaths.p2008d870}
-                    fill="var(--fill-0, white)"
-                    id="Vector_12"
-                  />
-                  <path
-                    d={svgPaths.p1e3350b0}
-                    fill="var(--fill-0, white)"
-                    id="Vector_13"
-                  />
-                  <path
-                    d={svgPaths.p2f312dc0}
-                    fill="var(--fill-0, white)"
-                    id="Vector_14"
-                  />
-                  <path
-                    d={svgPaths.p3e01e832}
-                    fill="var(--fill-0, white)"
-                    id="Vector_15"
-                  />
-                  <path
-                    d={svgPaths.p2906a180}
-                    fill="var(--fill-0, white)"
-                    id="Vector_16"
-                  />
-                  <path
-                    d={svgPaths.p1c5c3100}
-                    fill="var(--fill-0, white)"
-                    id="Vector_17"
-                  />
-                  <path
-                    d={svgPaths.p29a1180}
-                    fill="var(--fill-0, white)"
-                    id="Vector_18"
-                  />
-                  <path
-                    d={svgPaths.pa4cd000}
-                    fill="var(--fill-0, white)"
-                    id="Vector_19"
-                  />
-                </g>
-              </svg>
+                <svg
+                  className="absolute block size-full"
+                  fill="none"
+                  preserveAspectRatio="none"
+                  viewBox="0 0 148.872 9.04596"
+                >
+                  <g id="Button text">
+                    <path
+                      d={svgPaths.p2c09fd40}
+                      fill="var(--fill-0, white)"
+                      id="Vector"
+                    />
+                    <path
+                      d={svgPaths.p7626400}
+                      fill="var(--fill-0, white)"
+                      id="Vector_2"
+                    />
+                    <path
+                      d={svgPaths.pb6fbf80}
+                      fill="var(--fill-0, white)"
+                      id="Vector_3"
+                    />
+                    <path
+                      d={svgPaths.p32833580}
+                      fill="var(--fill-0, white)"
+                      id="Vector_4"
+                    />
+                    <path
+                      d={svgPaths.p1a498a80}
+                      fill="var(--fill-0, white)"
+                      id="Vector_5"
+                    />
+                    <path
+                      d={svgPaths.p189288f0}
+                      fill="var(--fill-0, white)"
+                      id="Vector_6"
+                    />
+                    <path
+                      d={svgPaths.p765070}
+                      fill="var(--fill-0, white)"
+                      id="Vector_7"
+                    />
+                    <path
+                      d={svgPaths.p31381500}
+                      fill="var(--fill-0, white)"
+                      id="Vector_8"
+                    />
+                    <path
+                      d={svgPaths.p24a78e00}
+                      fill="var(--fill-0, white)"
+                      id="Vector_9"
+                    />
+                    <path
+                      d={svgPaths.p1e4aba00}
+                      fill="var(--fill-0, white)"
+                      id="Vector_10"
+                    />
+                    <path
+                      d={svgPaths.p1f962000}
+                      fill="var(--fill-0, white)"
+                      id="Vector_11"
+                    />
+                    <path
+                      d={svgPaths.p2008d870}
+                      fill="var(--fill-0, white)"
+                      id="Vector_12"
+                    />
+                    <path
+                      d={svgPaths.p1e3350b0}
+                      fill="var(--fill-0, white)"
+                      id="Vector_13"
+                    />
+                    <path
+                      d={svgPaths.p2f312dc0}
+                      fill="var(--fill-0, white)"
+                      id="Vector_14"
+                    />
+                    <path
+                      d={svgPaths.p3e01e832}
+                      fill="var(--fill-0, white)"
+                      id="Vector_15"
+                    />
+                    <path
+                      d={svgPaths.p2906a180}
+                      fill="var(--fill-0, white)"
+                      id="Vector_16"
+                    />
+                    <path
+                      d={svgPaths.p1c5c3100}
+                      fill="var(--fill-0, white)"
+                      id="Vector_17"
+                    />
+                    <path
+                      d={svgPaths.p29a1180}
+                      fill="var(--fill-0, white)"
+                      id="Vector_18"
+                    />
+                    <path
+                      d={svgPaths.pa4cd000}
+                      fill="var(--fill-0, white)"
+                      id="Vector_19"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </StyledButton>
+            <div>
+              <p id="fecha-debajo" style={{ fontSize: "10px" }} className="text-xs text-gray-300 mt-2 tracking-widest uppercase opacity-80">Confirmar asistencia hasta el 15 de Abril</p>
             </div>
-          </StyledButton>
+          </div>
+
         </div>
         {pagaTarjeta && (
           <div
@@ -11054,7 +11064,7 @@ function Frame() {
   );
 
   return (
-    <div style={{ backgroundColor: "#FCFAF6", minHeight: "100vh", display: "flex", justifyContent: "center" }}>
+    <div style={{ backgroundColor: "#FCFAF6", minHeight: "5703.55px", display: "flex", justifyContent: "center" }}>
       {/* El reproductor se monta SIEMPRE aquí para estar listo para el trigger global */}
       <FloatingMusicPlayer />
 
