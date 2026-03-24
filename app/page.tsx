@@ -398,8 +398,8 @@ const URL_COMO_LLEGAR_CEREMONIA =
 const URL_COMO_LLEGAR_FIESTA =
   "https://maps.app.goo.gl/zDreD5U7K2jKMYhf8";
 const URL_INSTAGRAM = "https://www.instagram.com/casamientoluliysanti?igsh=czlyY29mNG42NnJw";
-const URL_PLAYLIST = "https://open.spotify.com/playlist/0lBRB4gQQlQmtNCOy2aicR?si=kuMPP5rLTK2oSSY3QI_X7w&pi=h9WMl4FCT2uVJ";
-const URL_ALBUM = "https://web.dotstheapp.com/a?group=2381973&dlBy=santiagoreitano&code=EWd3ut9wpMMI&utm_source=guest&utm_medium=share&utm_campaign=guest_event_album&force_app=1";
+const URL_PLAYLIST = "https://open.spotify.com/playlist/0lBRB4gQQlQmtNCOy2aicR?si=gtu4EXoPRNS5zQwoZia7MQ&pi=oydZRXvtTRSNo&pt=8d0334637d524c35858f59bc273660ab";
+const URL_ALBUM = "https://photos.app.goo.gl/8qcd8K54PU8JESue7";
 const URL_PINTEREST = "https://pin.it/1mL1PTj1S";
 
 // 🎵 CONFIGURACIÓN DE MÚSICA
