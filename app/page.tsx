@@ -398,7 +398,7 @@ const URL_COMO_LLEGAR_CEREMONIA =
 const URL_COMO_LLEGAR_FIESTA =
   "https://maps.app.goo.gl/zDreD5U7K2jKMYhf8";
 const URL_INSTAGRAM = "https://www.instagram.com/casamientoluliysanti?igsh=czlyY29mNG42NnJw";
-const URL_PLAYLIST = "https://open.spotify.com/playlist/0lBRB4gQQlQmtNCOy2aicR?si=gtu4EXoPRNS5zQwoZia7MQ&pi=oydZRXvtTRSNo&pt=8d0334637d524c35858f59bc273660ab";
+const URL_PLAYLIST = "https://open.spotify.com/playlist/0lBRB4gQQlQmtNCOy2aicR?si=96dD8P9KTFqeaGPmDT4mrA&pi=uSQzJWMeRcGee&nd=1&dlsi=4f76f9103e3949dc";
 const URL_ALBUM = "https://photos.app.goo.gl/8qcd8K54PU8JESue7";
 const URL_PINTEREST = "https://pin.it/1mL1PTj1S";
 
